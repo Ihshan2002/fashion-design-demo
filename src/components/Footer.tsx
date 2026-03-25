@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { ArrowRight, Instagram, Facebook, Twitter, Globe, ArrowUp } from "lucide-react";
+
 const footerLinks = {
   Shop: ["Women", "Men", "Kids", "Accessories", "Sale"],
   Help: ["Customer Service", "Shipping & Returns", "Size Guide", "FAQs"],
@@ -5,76 +8,116 @@ const footerLinks = {
 };
 
 const Footer = () => {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
-    <footer className="bg-primary text-primary-foreground">
-      {/* Newsletter */}
-      <div className="section-padding py-16 border-b border-primary-foreground/10">
-        <div className="max-w-md">
-          <h3 className="font-heading text-xl font-medium mb-2">Stay in the Loop</h3>
-          <p className="font-body text-sm text-primary-foreground/60 mb-6">
-            Be the first to know about new arrivals, exclusive offers, and styling inspiration.
-          </p>
-          <div className="flex">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-1 bg-transparent border border-primary-foreground/20 px-4 py-3 text-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-primary-foreground/50"
-            />
-            <button className="bg-accent text-accent-foreground px-6 py-3 text-label hover:bg-accent/90 transition-colors">
-              Subscribe
-            </button>
-          </div>
-        </div>
+    <footer className="relative bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 border-t border-zinc-100 dark:border-zinc-900 pt-20">
+      
+      {/* 1. NEXT LEVEL: Minimalist Marquee */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden py-3 border-b border-zinc-100 dark:border-zinc-900">
+        <motion.div 
+          animate={{ x: [0, -1000] }}
+          transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+          className="flex whitespace-nowrap gap-20 text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-400"
+        >
+          <span>Free Worldwide Shipping on Orders Over LKR 15,000</span>
+          <span>New Season Drops Every Friday</span>
+          <span>Sustainable Luxury Craftsmanship</span>
+          <span>Free Worldwide Shipping on Orders Over LKR 15,000</span>
+        </motion.div>
       </div>
 
-      {/* Links */}
-      <div className="section-padding py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="col-span-2 md:col-span-1">
-            <a href="#" className="font-heading text-lg font-semibold tracking-wide">
-              MAISON ÉLARA
-            </a>
-            <p className="font-body text-xs text-primary-foreground/50 mt-3 leading-relaxed max-w-xs">
-              Modern elegance for the conscious individual. Crafted with intention, worn with confidence.
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+        {/* Newsletter Section */}
+        <div className="py-24 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="lg:col-span-7">
+            <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-6">Subscription</h3>
+            <p className="font-serif text-4xl md:text-6xl leading-[1.1] max-w-2xl">
+              Elevate your wardrobe with <span className="italic font-light">curated</span> inspiration.
             </p>
           </div>
+          
+          <div className="lg:col-span-5">
+            <div className="relative group flex items-center border-b border-zinc-300 dark:border-zinc-800 py-4 transition-all focus-within:border-zinc-900 dark:focus-within:border-white">
+              <input
+                type="email"
+                placeholder="YOUR EMAIL"
+                className="w-full bg-transparent text-xs tracking-widest uppercase outline-none"
+              />
+              <motion.button 
+                whileHover={{ x: 5 }}
+                className="text-[11px] font-bold tracking-widest uppercase flex items-center gap-2"
+              >
+                Join <ArrowRight size={16} strokeWidth={1} />
+              </motion.button>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Grid */}
+        <div className="py-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+          <div className="col-span-2 lg:col-span-3">
+            <h2 className="font-serif text-3xl tracking-[0.2em] mb-8">MAISON ÉLARA</h2>
+            <div className="flex flex-col gap-4">
+               <div className="flex items-center gap-2 text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer transition-colors group w-fit">
+                 <Globe size={14} className="group-hover:rotate-12 transition-transform" />
+                 <span className="text-[10px] font-bold tracking-widest uppercase">Sri Lanka | LKR Rs.</span>
+               </div>
+               <div className="flex gap-6 mt-4">
+                  {[Instagram, Facebook, Twitter].map((Icon, i) => (
+                    <motion.a 
+                      key={i} 
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      href="#" 
+                      className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                    >
+                      <Icon size={18} strokeWidth={1.5} />
+                    </motion.a>
+                  ))}
+               </div>
+            </div>
+          </div>
+
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-label text-primary-foreground/80 mb-4">{title}</h4>
-              <ul className="space-y-2.5">
+              <h4 className="text-[10px] font-bold tracking-[0.25em] uppercase mb-8 text-zinc-400">{title}</h4>
+              <ul className="space-y-4">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="font-body text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors"
+                  <li key={link} className="overflow-hidden">
+                    <motion.a 
+                      whileHover={{ x: 5 }}
+                      href="#" 
+                      className="inline-block text-[13px] font-light text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
                     >
                       {link}
-                    </a>
+                    </motion.a>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Bottom */}
-      <div className="section-padding py-6 border-t border-primary-foreground/10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-primary-foreground/40">
-            © 2026 Maison Élara. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Settings"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="font-body text-xs text-primary-foreground/40 hover:text-primary-foreground/70 transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+        {/* Bottom Bar */}
+        <div className="py-12 border-t border-zinc-100 dark:border-zinc-900 flex flex-col md:flex-row justify-between items-end gap-8">
+          <div className="space-y-4">
+            <p className="text-[10px] tracking-widest text-zinc-400 uppercase">Crafted for Excellence • 2026</p>
+            <div className="flex gap-8">
+               {["Privacy", "Terms", "Cookies"].map(item => (
+                 <a key={item} href="#" className="text-[10px] font-bold tracking-widest uppercase text-zinc-400 hover:text-zinc-900 dark:hover:text-white">{item}</a>
+               ))}
+            </div>
           </div>
+
+          {/* Magnetic Back to Top */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={scrollToTop}
+            className="w-16 h-16 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors"
+          >
+            <ArrowUp size={20} strokeWidth={1} />
+          </motion.button>
         </div>
       </div>
     </footer>
