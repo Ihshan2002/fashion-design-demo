@@ -62,7 +62,7 @@ const FeaturedProducts = () => {
                 Eliminate the guesswork and experience the art of perfect tailoring.
               </p>
               <ul className="space-y-4 mb-8">
-                {['98.4% Accuracy Rate', 'Reduced Return Friction', 'Tailored for Maison Élara Silhouettes'].map((item) => (
+                {['98.4% Accuracy Rate', 'Reduced Return Friction', 'Tailored for Xenwear Silhouettes'].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-[#28609d]">
                     <span className="w-1.5 h-1.5 bg-[#28609d] rounded-full" /> {item}
                   </li>

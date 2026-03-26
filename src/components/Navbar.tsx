@@ -103,7 +103,7 @@ const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
               className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 select-none font-serif text-[18px] md:text-[21px] font-normal tracking-[0.28em] text-zinc-900 dark:text-white whitespace-nowrap hover:opacity-60 transition-opacity duration-300"
               style={{ fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif" }}
             >
-              MAISON ÉLARA
+              Xenwear
             </a>
 
             {/* Right icons */}

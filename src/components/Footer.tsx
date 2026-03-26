@@ -57,7 +57,7 @@ const Footer = () => {
         {/* Navigation Grid */}
         <div className="py-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
           <div className="col-span-2 lg:col-span-3">
-            <h2 className="font-serif text-3xl tracking-[0.2em] mb-8">MAISON ÉLARA</h2>
+            <h2 className="font-serif text-3xl tracking-[0.2em] mb-8">Xenwear</h2>
             <div className="flex flex-col gap-4">
                <div className="flex items-center gap-2 text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer transition-colors group w-fit">
                  <Globe size={14} className="group-hover:rotate-12 transition-transform" />
