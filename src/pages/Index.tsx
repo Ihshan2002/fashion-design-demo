@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ProductSlider from "@/components/ProductSlider";
 import CategorySection from "@/components/CategorySection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import NewArrivals from "@/components/NewArrivals";
 import PromoBanner from "@/components/PromoBanner";
 import BrandShowcase from "@/components/BrandShowcase";
 import BrandMarquee from "@/components/BrandMarquee";
+import ExperienceSection from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -36,12 +38,14 @@ const Index = () => {
       {/* paddingTop keeps all sections below the fixed navbar */}
       <main style={{ paddingTop: navHeight }}>
         <HeroSection />
+        <ProductSlider />
         <CategorySection />
         <FeaturedProducts />
         <BrandMarquee />
         <NewArrivals />
         <PromoBanner />
         <BrandShowcase />
+        <ExperienceSection />
         <Footer />
       </main>
     </div>
